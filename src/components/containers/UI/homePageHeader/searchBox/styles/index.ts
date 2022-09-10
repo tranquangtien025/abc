@@ -92,4 +92,5 @@ export const StyledInput1 = styled.input`
   padding: 0;
   vertical-align: middle;
   white-space: normal;
+  width: 100%;
 `

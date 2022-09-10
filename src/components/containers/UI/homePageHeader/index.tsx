@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { Admin } from "./admin"
 import { Category } from "./category"
 import { GoogleLogo } from "./googleLogo"
@@ -8,20 +8,25 @@ import { StyledPageHeader } from "./styles"
 
 export const HomePageHeader = (props: any) => {
   const [isDisplay, setIsDisplay] = useState(false);
-  const search = (searchKey: String) => {
-    isDisplay === true && props.searchMovie(searchKey);
-    isDisplay === false && props.searchMovie("")
-  }
+  const [searchKey, setSearchKey] = useState("");
+
+  const searchHandle = useCallback((searchKey: string) => {
+      props.searchMovie(searchKey);
+  }, [props])
 
   useEffect(() => {
-    search("")
-  }, [isDisplay])
+    if (!isDisplay) {
+      searchHandle("")
+    } else {
+      searchHandle(searchKey)
+    }
+  }, [isDisplay, searchKey, searchHandle])
 
   return (
     <StyledPageHeader>
       <GoogleLogo />
       <Category />
-      { isDisplay ? <SearchBox handleSearch={search} /> : null }
+      { isDisplay ? <SearchBox handleSearch={(e: string) => setSearchKey(e)} /> : null }
       <Search onChangeStyle={() => setIsDisplay(!isDisplay)} />
       <Admin />
     </StyledPageHeader>

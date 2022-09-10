@@ -14,7 +14,6 @@ export const SearchBox = (props: any) => {
       <StyledDiv2>
         <div>
           <StyledLabel1>
-            <StyledLabel1>
               <StyledDiv3>
                 <StyledSpan1>
                   <GoSearch />
@@ -24,7 +23,6 @@ export const SearchBox = (props: any) => {
               placeholder="Tìm kiếm phim" 
               type="text"
               onChange={handleChange} />
-            </StyledLabel1>
           </StyledLabel1>
         </div>
       </StyledDiv2>
