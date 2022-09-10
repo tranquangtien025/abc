@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { GoSearch } from "react-icons/go"
 import { StyledDiv2, StyledDiv3, StyledInput1, StyledLabel1, StyledSearchBox, StyledSpan1 } from "./styles"
 

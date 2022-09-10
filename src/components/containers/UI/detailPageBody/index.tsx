@@ -7,7 +7,6 @@ import { SubContents } from "./subContents"
 
 export const DetailPageBody = (props: any) => {
   const [moviesList, setMoviesList] = useState<Movie[]>([])
-  const [filteredList, setFilteredList] = useState<Movie[]>([])
 
   useEffect(() => {
     getData()

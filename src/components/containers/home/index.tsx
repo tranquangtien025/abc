@@ -17,10 +17,6 @@ export const Home: React.FC = () => {
     getData()
   }, [])
 
-  useEffect(() => {
-    setFilteredList(filteredMoviesList)
-  }, [selectedCategory, moviesList, searchKey])
-
   const getData = async () => {
     try {
       const { data } = await getMovies("/movies", { param: { page: 1, pageSize: 10 } })
@@ -45,6 +41,10 @@ export const Home: React.FC = () => {
     }
       return movie.category.toString() === selectedCategory;
   })
+
+  useEffect(() => {
+    setFilteredList(filteredMoviesList)
+  }, [selectedCategory, moviesList, searchKey, filteredMoviesList])
 
   return (
     <div>
