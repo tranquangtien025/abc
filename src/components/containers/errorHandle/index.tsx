@@ -1,0 +1,1 @@
+export const ErrorHandle = () => <h1>Error Handle</h1>
